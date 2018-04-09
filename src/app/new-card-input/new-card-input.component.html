@@ -1,5 +1,5 @@
 <div class="card">
-  <form novalidate #form="ngForm">
-    <input placeholder="Take a note..." class="form-control" [(ngModel)]="newCard.text" required>
+  <form [formGroup]="newCardForm" novalidate>
+    <input placeholder="Take a note..." class="form-control" name="text" formControlName="text" required>
   </form>
 </div>
