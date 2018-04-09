@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {CardService} from './services/card.service';
+import {Observable} from 'rxjs/Observable';
+import {Card} from './models/card';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +11,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular Notes App';
 
-  public cards: Array<any> = [
-    {text: 'Card 1'},
-    {text: 'Card 2'},
-    {text: 'Card 3'},
-    {text: 'Card 4'},
-    {text: 'Card 5'},
-    {text: 'Card 6'},
-    {text: 'Card 7'},
-    {text: 'Card 8'},
-    {text: 'Card 9'},
-    {text: 'Card 10'},
-  ];
+  public cards$: Observable<Card[]>;
+
+  constructor(private cardService: CardService) {
+    this.cards$ = this.cardService.getCardsList();
+  }
 
   addCard(cardText: string) {
-    this.cards.push({text: cardText});
+    this.cardService.createCard(new Card(cardText));
   }
 }
