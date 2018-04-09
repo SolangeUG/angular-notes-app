@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -7,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  @Input()
+  card: any;
+
+  /* Use the constructor for constants, like
+   * values that are hard-coded into the componenent
+   */
   constructor() { }
 
+  /* Use the init method for everything that
+   *  depends on external data
+   */
   ngOnInit() {
   }
 
