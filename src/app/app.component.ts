@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Notes App';
+
   public cards: Array<any> = [
     {text: 'Card 1'},
     {text: 'Card 2'},
@@ -19,4 +20,8 @@ export class AppComponent {
     {text: 'Card 9'},
     {text: 'Card 10'},
   ];
+
+  addCard(cardText: string) {
+    this.cards.push({text: cardText});
+  }
 }
