@@ -1,5 +1,5 @@
-import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {Component, EventEmitter, HostListener, OnDestroy, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {debounceTime, filter, takeWhile} from 'rxjs/operators';
 
 @Component({
@@ -8,7 +8,7 @@ import {debounceTime, filter, takeWhile} from 'rxjs/operators';
   styleUrls: ['./new-card-input.component.scss'],
   host: {'class': 'col-4'}
 })
-export class NewCardInputComponent implements OnInit {
+export class NewCardInputComponent implements OnInit, OnDestroy {
   private alive = true;
   newCardForm: FormGroup;
 
@@ -36,12 +36,16 @@ export class NewCardInputComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
   addCard(text) {
     this.onCardAdd.emit(text);
     this.newCardForm.controls['text'].setValue('');
+  }
+
+  ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.alive = false;
   }
 
 }
