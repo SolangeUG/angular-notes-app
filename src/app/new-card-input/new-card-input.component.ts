@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewCardInputComponent implements OnInit {
 
+  public newCard: any = {text: ''};
+
   constructor() { }
 
   ngOnInit() {
