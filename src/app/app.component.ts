@@ -9,7 +9,6 @@ import {Card} from './models/card';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular Notes App';
 
   public cards$: Observable<Card[]>;
 
