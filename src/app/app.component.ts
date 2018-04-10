@@ -1,7 +1,9 @@
 import {Component} from '@angular/core';
-import {CardService} from './services/card.service';
 import {Observable} from 'rxjs/Observable';
 import {Card} from './models/card';
+import {Store} from '@ngrx/store';
+import * as fromRoot from './reducers';
+import * as cards from './actions/cards';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +14,11 @@ export class AppComponent {
 
   public cards$: Observable<Card[]>;
 
-  constructor(private cardService: CardService) {
-    this.cards$ = this.cardService.getCardsList();
+  constructor(private store: Store<fromRoot.State>) {
+    this.cards$ = this.store.select(fromRoot.getCards);
   }
 
-  addCard(cardText: string) {
-    this.cardService.createCard(new Card(cardText));
+  addCard(card: Card) {
+    this.store.dispatch(new cards.Add(card));
   }
 }
