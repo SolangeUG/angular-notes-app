@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Card} from './models/card';
 import {Store} from '@ngrx/store';
@@ -10,7 +10,7 @@ import * as cards from './actions/cards';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   public cards$: Observable<Card[]>;
 
@@ -20,5 +20,10 @@ export class AppComponent {
 
   addCard(card: Card) {
     this.store.dispatch(new cards.Add(card));
+  }
+
+  ngOnInit() {
+    this.store.dispatch(new cards.Load());
+    this.cards$ = this.store.select(fromRoot.getCards);
   }
 }
