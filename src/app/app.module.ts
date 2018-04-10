@@ -8,6 +8,8 @@ import { CardComponent } from './card/card.component';
 import { CardListComponent } from './card-list/card-list.component';
 import { NewCardInputComponent } from './new-card-input/new-card-input.component';
 import { CardService } from './services/card.service';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { CardService } from './services/card.service';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers, {metaReducers})
   ],
   providers: [CardService],
   bootstrap: [AppComponent]
