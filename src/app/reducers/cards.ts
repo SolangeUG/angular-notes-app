@@ -24,6 +24,12 @@ export function reducer(state = initialState, action: cards.Actions): State {
         cards: [...state.cards.slice(0, index), ...state.cards.slice(index + 1)]
       };
 
+    case cards.LOAD_SUCCESS:
+      return {
+        ...state,
+        cards: [...state.cards, ...action.payload]
+      };
+
     default:
       return state;
   }
