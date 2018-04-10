@@ -28,8 +28,10 @@ export class CardService {
     return this.db.object(cardPath).valueChanges() as Observable<Card | null>;
   }
 
-  createCard(card: Card): void {
-    this.cardsRef.push(card);
+  createCard(card: Card): Card {
+    const result = this.cardsRef.push(card);
+    card.$key = result.key;
+    return card;
   }
 
   updateCard(key: string, value: any): void {

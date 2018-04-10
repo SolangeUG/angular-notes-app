@@ -11,13 +11,15 @@ import { NewCardInputComponent } from './new-card-input/new-card-input.component
 import { CardService } from './services/card.service';
 import { reducers, metaReducers } from './reducers';
 import { CardsEffects } from './effects/cards';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     CardListComponent,
-    NewCardInputComponent
+    NewCardInputComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

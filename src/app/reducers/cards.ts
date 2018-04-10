@@ -27,7 +27,7 @@ export function reducer(state = initialState, action: cards.Actions): State {
     case cards.LOAD_SUCCESS:
       return {
         ...state,
-        cards: [...state.cards, ...action.payload]
+        cards: action.payload
       };
 
     default:

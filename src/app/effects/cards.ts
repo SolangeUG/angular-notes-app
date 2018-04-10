@@ -29,6 +29,18 @@ export class CardsEffects {
           })
     );
 
+  @Effect()
+  addCards$ = this.actions$
+    .ofType(Cards.ADD)
+    .pipe(map((action: Cards.Add) => action.payload),
+          exhaustMap(payload => {
+            const card = this.cardService$.createCard(payload);
+            if (card.$key) {
+              return of(null);
+            }
+          })
+    );
+
   constructor(
     private actions$: Actions,
     private cardService$: CardService
