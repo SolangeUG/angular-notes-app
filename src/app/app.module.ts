@@ -12,6 +12,14 @@ import { CardService } from './services/card.service';
 import { reducers, metaReducers } from './reducers';
 import { CardsEffects } from './effects/cards';
 import { AboutComponent } from './about/about.component';
+import { MainComponent } from './main/main.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: '', redirectTo: 'cards', pathMatch: 'full'},
+  {path: 'cards', component: MainComponent},
+  {path: 'about', component: AboutComponent}
+];
 
 @NgModule({
   declarations: [
@@ -19,14 +27,16 @@ import { AboutComponent } from './about/about.component';
     CardComponent,
     CardListComponent,
     NewCardInputComponent,
-    AboutComponent
+    AboutComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, {metaReducers}),
-    EffectsModule.forRoot([CardsEffects])
+    EffectsModule.forRoot([CardsEffects]),
+    RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [CardService],
   bootstrap: [AppComponent]
