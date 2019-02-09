@@ -38,10 +38,12 @@
     "protobufjs": "^5.0.3",
     "rxjs": "^5.5.12",
     "url-parse": "^1.4.3",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "lodash": ">=4.17.11",
+    "extend": ">=3.0.2"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.4",
+    "@angular/cli": "^7.3.1",
     "@angular/compiler-cli": "^5.2.11",
     "@angular/language-service": "^5.2.11",
     "@types/jasmine": "^2.8.9",
@@ -50,7 +52,7 @@
     "codelyzer": "^4.5.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "^2.0.5",
+    "karma": "^4.0.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "^1.4.3",
     "karma-jasmine": "^1.1.2",
