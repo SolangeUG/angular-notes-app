@@ -34,13 +34,14 @@
     "hoek": "^4.2.1",
     "https-proxy-agent": "^2.2.0",
     "jquery": "^3.4.1",
-    "lodash": ">=4.17.11",
+    "lodash": ">=4.17.13",
     "ngrx-store-logger": "^0.2.2",
     "popper.js": "^1.14.4",
     "protobufjs": "^5.0.3",
     "rxjs": "^5.5.12",
     "url-parse": "^1.4.3",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "mem": ">=4.0.0"
   },
   "devDependencies": {
     "@angular/cli": "^7.3.8",
