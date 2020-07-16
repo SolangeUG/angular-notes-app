@@ -34,7 +34,7 @@
     "hoek": "^4.2.1",
     "https-proxy-agent": "^2.2.3",
     "jquery": "^3.5.0",
-    "lodash": ">=4.17.13",
+    "lodash": ">=4.17.19",
     "mem": ">=4.0.0",
     "minimist": ">=1.2.3",
     "ngrx-store-logger": "^0.2.2",
